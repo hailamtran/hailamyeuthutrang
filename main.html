@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <title>CSS Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("imgs/a.jpg");
+            font-size: 20px;
+        }
+
+        p {
+            background-color: lightpink ;
+            font-style: italic;
+            display: inline-block;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: pink;
+        }
+
+        /* Style the topnav links */
+        .topnav a {
+            float: left;
+            display: block;
+
+            text-align: center;
+            padding: 20px 20px;
+
+
+            text-decoration: #2196F3;
+        }
+
+        /* Change color on hover */
+        .topnav a:hover {
+            background-color: white;
+
+        }
+
+        /* Style the header */
+        .header {
+            padding: 30px;
+            text-align: center;
+            font-size: 50px;
+
+        }
+
+        /* Create three unequal columns that floats next to each other */
+        .column {
+            float: left;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
+
+        /* Left and right column */
+        .column.side {
+            width: 33%;
+        }
+
+        /* Middle column */
+        .column.middle {
+            width: 33%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the footer */
+        .footer {
+            background-color: pink;
+            padding: 10px;
+            text-align: center;
+        }
+
+
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media (max-width: 600px) {
+            .column.side, .column.middle {
+                width: 100%;
+            }
+        }
+
+        .left {
+
+            padding:60px;
+            float:left;
+            width:30%; /* The width is 20%, by default */
+        }
+
+        .main1 {
+
+            padding:60px;
+            float:left;
+            width:40%; /* The width is 60%, by default */
+        }
+
+        .right {
+
+            padding:60px;
+            float:right;
+            width:30%; /* The width is 20%, by default */
+        }
+
+        .h2 {
+            text-decoration-color: lightpink;
+        }
+
+        .sidenav-left {
+            height: 100%;
+            width: 300px;
+            position: fixed;
+            z-index: 1;
+            top: 30px;
+            left: 0;
+
+            overflow-x: hidden;
+            padding-top: 20px;
+            background-color: pink;
+            display: inline-block;
+        }
+
+        .main {
+            margin-left: 300px; /* Same as the width of the sidenav */
+            margin-right: 300px;
+            font-size: 20px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        .sidenav-right {
+            height: 100%;
+            width: 300px;
+            position: fixed;
+            z-index: 1;
+            top: 30px;
+            right: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+            background-color: pink;
+            display: inline-block;
+        }
+
+        #img-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .center{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .content-wrapper{
+            width: 100%;
+            position: relative;
+        }
+
+        .content-wrapper img{
+            width: 100%;
+            height: 400px;
+        }
+
+        .text-wrapper{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+
+<body>
+<div class="sidenav-left">
+    <h3 style="color:hotpink;"> I LOVE YOU SO MUCH</h3>
+    <br>
+    <h3 style="color:hotpink;"> I LOVE YOU SO MUCH</h3>
+    <br>
+    <h3 style="color:hotpink;"> I LOVE YOU SO MUCH</h3>
+    <br>
+    <h3 style="color:hotpink;"> I LOVE YOU SO MUCH</h3>
+    <br>
+    <h3 style="color:hotpink;"> I LOVE YOU SO MUCH</h3>
+</div>
+
+<div class="sidenav-right">
+    <h3 style="color:hotpink;"> FORGIVE ME PLEASE</h3>
+    <br>
+    <h3 style="color:hotpink;"> FORGIVE ME PLEASE</h3>
+    <br>
+    <h3 style="color:hotpink;"> FORGIVE ME PLEASE</h3>
+    <br>
+    <h3 style="color:hotpink;"> FORGIVE ME PLEASE</h3>
+    <br>
+    <h3 style="color:hotpink;"> FORGIVE ME PLEASE</h3>
+</div>
+
+
+<div class="main">
+    <img class="center" src="imgs/ann.png"  width="500" height="300">
+    <hr/>
+
+    <div class="topnav">
+
+        <a href="#" onclick="displayResult()">Love Memory</a>
+        <a href="#" onclick="displayResult1()">First Date</a>
+        <a href="#" onclick="displayResult2()">First Grab</a>
+        <a href="#" onclick="displayResult3()">My Girl</a>
+    </div>
+    <hr/>
+    <div id="img-container"></div>
+
+    <script>
+
+        const imgs = ['imgs/c.jpg','imgs/d.jpg','imgs/e.jpg', 'imgs/lam1.png',
+            'imgs/f1.jpg', 'imgs/f2.jpg',
+            'imgs/q.jpg', 'imgs/e.jpg','imgs/hl1.jpg','imgs/hl2.jpg',
+            'imgs/yuy.png', 'imgs/t.png', 'imgs/trang1.png', 'imgs/tt1.png',
+        ];
+
+
+
+        for (let i = 0; i < imgs.length; i++) {
+            const container = document.getElementById('img-container');
+            container.innerHTML += `<img id="img${i}" style="display: none; margin-left: 5px" src="${imgs[i]}" width="320" height="350">`
+        }
+
+        function displayResult() {
+
+
+            for (let i = 0; i <imgs.length; i++) {
+                if(i<=3) {
+                    document.getElementById('img' + i.toString()).style.display = 'inline-block';
+                }
+
+                else {
+                    document.getElementById('img' + i.toString()).style.display = 'none';
+                }
+            }
+
+
+        }
+
+        function displayResult1() {
+            for (let i = 0; i <imgs.length; i++) {
+                if((i>=4 && i<=5)) {
+                    document.getElementById('img' + i.toString()).style.display = 'inline-block';
+                }
+
+                else {
+                    document.getElementById('img' + i.toString()).style.display = 'none';
+                }
+            }
+
+        }
+
+        function displayResult2() {
+            for (let i = 0; i <imgs.length; i++) {
+                if((i>=6 && i<=9)){
+                    document.getElementById('img' + i.toString()).style.display = 'inline-block';
+                }
+
+                else {
+                    document.getElementById('img' + i.toString()).style.display = 'none';
+                }
+            }
+
+        }
+
+        function displayResult3() {
+            for (let i = 0; i <imgs.length; i++) {
+                if(i>9) {
+                    document.getElementById('img' + i.toString()).style.display = 'inline-block';
+                }
+
+                else {
+                    document.getElementById('img' + i.toString()).style.display = 'none';
+                }
+            }
+
+        }
+
+    </script>
+
+    <hr/>
+
+
+
+    <div class="footer">
+        <p style="margin-right: 100px">FOREVER LOVE YOU </p>
+        <p style="margin-right: 100px">FOREVER LOVE YOU </p>
+        <p style="margin-right: 100px">FOREVER LOVE YOU </p>
+        <p style="margin-right: 100px">FOREVER LOVE YOU </p>
+    </div>
+    <hr/>
+
+    <div>
+        <div class="content-wrapper">
+            <img src="imgs/love.jpg">
+            <div class="text-wrapper">abgegegegeggecabgegghgggggggggttttttttttttttttttttttttttttttttttttttttttttggggggggggggggggggggggggggegegeggecabgege <br>
+                gegeggecabgegegegeggecabgegegegeggecgggggttttttttttttttttttttttttgggggggggggggggggabgege<br>
+                gegeggecabgegegegeggecabgegegegeggecgggggttttttttttttttttttttttttgggggggggggggggggabgege<br>
+                gegeggecabgegegegeggecabgegegegeggecgggggttttttttttttttttttttttttgggggggggggggggggabgege<br>
+                gegeggecabgegegegeggecabgegegegeggecgggggttttttttttttttttttttttttgggggggggggggggggabgege<br>
+                gegeggecabgegegegeggecabgegegegeggecgggggttttttttttttttttttttttttgggggggggggggggggabgege<br>
+                gegeggecabgegegegeggecabgegegegeggecgggggttttttttttttttttttttttttgggggggggggggggggabgege<br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
